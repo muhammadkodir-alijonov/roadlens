@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: roadlens_db
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - /app/node_modules  # <-- faqat konteynerda node_modules bo‘ladi
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - roadlens_network
+
+  app:
+    build: .
+    container_name: roadlens_app
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      JWT_SECRET: ${JWT_SECRET}
+      YANDEX_API_KEY: ${YANDEX_API_KEY}
+    depends_on:
+      - postgres
+    volumes:
+      - /app/node_modules   # this ensures host node_modules are NOT shared
+    networks:
+      - roadlens_network
+
+volumes:
+  postgres_data:
+
+networks:
+  roadlens_network:
+    driver: bridge

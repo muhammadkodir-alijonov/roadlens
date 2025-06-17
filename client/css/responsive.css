@@ -1,0 +1,248 @@
+/* Responsive Design */
+
+/* Tablets - 768px to 1024px */
+@media (max-width: 1024px) {
+    .container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .chart-container {
+        height: 350px;
+    }
+}
+
+/* Mobile Landscape and Small Tablets - 576px to 768px */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .nav-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .nav-tab {
+        width: 200px;
+        text-align: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .header h1 {
+        font-size: 1.75rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .content-section {
+        padding: 20px;
+    }
+
+    .reports-table {
+        font-size: 0.9rem;
+    }
+
+    .reports-table th,
+    .reports-table td {
+        padding: 10px;
+    }
+
+    /* Make table scrollable on mobile */
+    .table-container {
+        margin: 0 -20px;
+        padding: 0 20px;
+    }
+
+    /* Hide less important columns on mobile */
+    .reports-table th:nth-child(5),
+    .reports-table td:nth-child(5) {
+        display: none;
+    }
+
+    .traffic-summary {
+        padding: 20px;
+    }
+
+    .congestion-level {
+        font-size: 2.5rem;
+    }
+
+    .map-container {
+        height: 400px;
+    }
+}
+
+/* Mobile Portrait - up to 576px */
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .nav-tabs {
+        margin: 20px 0;
+        gap: 8px;
+    }
+
+    .nav-tab {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .content-section {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .content-section h3 {
+        font-size: 1.25rem;
+    }
+
+    .traffic-summary {
+        padding: 15px;
+    }
+
+    .traffic-summary h3 {
+        font-size: 1.2rem;
+    }
+
+    .congestion-level {
+        font-size: 2rem;
+    }
+
+    .map-container {
+        height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .reports-table {
+        font-size: 0.8rem;
+    }
+
+    /* Hide additional columns on small mobile */
+    .reports-table th:nth-child(3),
+    .reports-table td:nth-child(3),
+    .reports-table th:nth-child(6),
+    .reports-table td:nth-child(6) {
+        display: none;
+    }
+
+    .status-badge {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+
+    .chart-container {
+        height: 300px;
+        padding: 15px;
+    }
+
+    .login-form {
+        padding: 25px;
+    }
+
+    .login-form h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .selected-location {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Very Small Devices - up to 375px */
+@media (max-width: 375px) {
+    .header h1 {
+        font-size: 1.25rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .congestion-level {
+        font-size: 1.75rem;
+    }
+
+    .map-container {
+        height: 250px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+    }
+
+    .nav-tabs,
+    .btn,
+    .header p {
+        display: none;
+    }
+
+    .content-section {
+        box-shadow: none;
+        background: white;
+        page-break-inside: avoid;
+    }
+
+    .reports-table {
+        box-shadow: none;
+    }
+
+    .chart-container {
+        page-break-inside: avoid;
+    }
+}
